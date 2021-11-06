@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6308820240389146825}
   - component: {fileID: 2165425409097910169}
   m_Layer: 5
-  m_Name: Missions
+  m_Name: MissionsWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
