@@ -23,7 +23,9 @@ public class BaseWindow : MonoBehaviour
     {
         hidingPos = new Vector3(rectTransform.anchoredPosition3D.x, GameManager.Instance.UICanvas.pixelRect.size.y / 2 + rectTransform.sizeDelta.y);
         rectTransform.anchoredPosition3D = hidingPos;
-        clicksCatcher.sizeDelta = GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta;
+
+        if (clicksCatcher)
+            clicksCatcher.sizeDelta = GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta;
 
         LeanTween.moveLocal(gameObject, Vector3.zero, Consts.WINDOW_SHOWING_ANIM_TIME);
     }
