@@ -8,6 +8,7 @@ public class CacheScript : MonoBehaviour
     private Dictionary<string, GameObject> prefabs;
     private Dictionary<string, BaseWindow> windows;
     private Dictionary<int, MissionData> missions;
+    private Dictionary<string, AudioClip> sounds;
 
     private void Awake()
     {
@@ -25,6 +26,11 @@ public class CacheScript : MonoBehaviour
         foreach (var mission in cacheSO.missions)
         {
             missions.Add(mission.Id, mission);
+        }
+        sounds = new Dictionary<string, AudioClip>();
+        foreach (var sound in cacheSO.sounds)
+        {
+            sounds.Add(sound.name, sound);
         }
     }
 
@@ -46,6 +52,13 @@ public class CacheScript : MonoBehaviour
     {
         if (missions.ContainsKey(id))
             return missions[id];
+        return null;
+    }
+
+    public AudioClip GetSound(string soundName)
+    {
+        if (sounds.ContainsKey(soundName))
+            return sounds[soundName];
         return null;
     }
 }

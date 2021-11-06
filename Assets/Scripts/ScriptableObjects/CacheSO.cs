@@ -6,4 +6,5 @@ public class CacheSO : ScriptableObject
     public GameObject[] prefabs;
     public BaseWindow[] windows;
     public MissionData[] missions;
+    public AudioClip[] sounds;
 }
