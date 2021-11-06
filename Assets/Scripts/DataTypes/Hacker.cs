@@ -19,7 +19,8 @@ public class Hacker
         HackerStats hackerStats = new HackerStats
         {
             Name = Consts.HACKER_NAMES[Random.Range(0, Consts.HACKER_NAMES.Length)],
-            AvatarName = Consts.HACKER_AVATARS[Random.Range(0, Consts.HACKER_AVATARS.Length)]
+            AvatarName = Consts.HACKER_AVATARS[Random.Range(0, Consts.HACKER_AVATARS.Length)],
+            Specialization = new List<Enums.Specialization>()
         };
         for (int i = 0; i < Random.Range(1,3);)
         {

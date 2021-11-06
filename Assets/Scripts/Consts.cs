@@ -27,8 +27,9 @@ public class Consts
         "Mat",
         "Amos",
     };
+
     public static string[] HACKER_AVATARS = new string[]
     {
-
+        "Avatar1",
     };
 }

@@ -9,10 +9,11 @@ public class RecrutWindow : BaseWindow
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject prefabItem;
 
-    private List<Hacker.HackerStats> hackerList = new List<Hacker.HackerStats>();
+    private List<Hacker.HackerStats> hackerList;
 
     private void Start()
     {
+        hackerList = new List<Hacker.HackerStats>();
         for (int i = 0; i < INIT_HACKERS; i++)
         {
             hackerList.Add(Hacker.CreateRandomStats());

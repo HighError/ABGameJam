@@ -17,6 +17,8 @@ public class BaseWindow : MonoBehaviour
         if (!buttonClose)
             buttonClose = transform.Find("ButtonClose").GetComponent<Button>();
         buttonClose.onClick.AddListener(ButtonCloseOnClick);
+
+        EventSystem.OnWindowsCloseNeeded += HideWindow;
     }
 
     public virtual void ShowWindow()
@@ -32,6 +34,7 @@ public class BaseWindow : MonoBehaviour
 
     public virtual void HideWindow()
     {
+        LeanTween.cancel(gameObject);
         LeanTween.moveLocal(gameObject, hidingPos, Consts.WINDOW_SHOWING_ANIM_TIME)
             .setOnComplete(() => Destroy(gameObject));
     }
@@ -40,5 +43,10 @@ public class BaseWindow : MonoBehaviour
     {
         GameManager.Instance.PlaySound("ButtonClick");
         HideWindow();
+    }
+
+    protected virtual void OnDestroy()
+    {
+        EventSystem.OnWindowsCloseNeeded -= HideWindow;
     }
 }
