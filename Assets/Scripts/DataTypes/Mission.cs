@@ -7,6 +7,7 @@ public class Mission
     public int SabotageProcent;
     public int SuccessChance;
     public long EndMissionTicks;
+    public MissionData MissionData;
 
     public void StartMission()
     {

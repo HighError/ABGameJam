@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 6899832586600258476}
   - component: {fileID: 2921073639389457480}
   - component: {fileID: 5228229354334400547}
+  - component: {fileID: 3696756814812061394}
   m_Layer: 5
   m_Name: MissionItem
   m_TagString: Untagged
@@ -349,6 +350,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3696756814812061394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163191113826503372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d5bddb955e23048827a061acd3fd37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 7651764222160010217}
+  baseChanceText: {fileID: 7222158567955791988}
+  specializationImage:
+  - {fileID: 5680123722040215668}
+  - {fileID: 1352513109438582883}
+  - {fileID: 1753420370508630252}
 --- !u!1 &6400755484189481165
 GameObject:
   m_ObjectHideFlags: 0
