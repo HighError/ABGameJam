@@ -31,4 +31,11 @@ public class Updater : MonoBehaviour
             }
         }
     }
+
+    void OnEnable()
+    {
+        Debug.Log("Reset");
+        time = 0f;
+        rectuteUpdateTime = Consts.RECRUTE_REFRESH_TIME;
+    }
 }

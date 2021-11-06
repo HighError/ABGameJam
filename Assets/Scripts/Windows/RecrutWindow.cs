@@ -6,11 +6,18 @@ public class RecrutWindow : BaseWindow
 {
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject prefabItem;
+    [SerializeField] private GameObject noAvaliblePanel;
 
     [SerializeField] private List<RecrutHackerInfoPanel> recrutHackerInfoPanel;
 
     private void Start()
     {
+        if (GameManager.Instance.PlayerData.HackerInfoData.Count >= GameManager.Instance.PlayerData.MaxHackers)
+        {
+            content.SetActive(false);
+            noAvaliblePanel.SetActive(true);
+            return;
+        }
         recrutHackerInfoPanel = new List<RecrutHackerInfoPanel>();
         for (int i = 0; i < GameManager.Instance.PlayerData.recrutHackerList.Count; i++)
         {

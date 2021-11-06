@@ -32,6 +32,7 @@ public class MissionData
     public int Id;
     public string Name;
     public int SuccessChance;
+    public int LoseProcent;
     public int RewardProcent;
     public double Minutes;
     public List<Enums.Specialization> Specializations;

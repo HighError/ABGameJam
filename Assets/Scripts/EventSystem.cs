@@ -10,4 +10,7 @@ public class EventSystem
 
     public static event EventHandler OnLevelCompleted;
     public static void CallOnLevelCompleted() { if (OnLevelCompleted != null) OnLevelCompleted(); }
+
+    public static event EventHandler OnUpdateScoreNeeded;
+    public static void CallOnUpdateScoreNeeded() { if (OnUpdateScoreNeeded != null) OnUpdateScoreNeeded(); }
 }

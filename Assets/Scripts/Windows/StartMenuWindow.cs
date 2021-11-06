@@ -14,6 +14,7 @@ public class StartMenuWindow : BaseWindow
 
     private void NewGameButtonOnClick()
     {
-
+        GameManager.Instance.PlayerData.CreateNewData();
+        HideWindow();
     }
 }

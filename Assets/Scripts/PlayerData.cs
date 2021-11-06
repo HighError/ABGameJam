@@ -8,38 +8,37 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public List<Hacker> HackerInfoData;
     [HideInInspector] public int LevelNumber;
     [HideInInspector] public int SabotageProcent;
+    [HideInInspector] public int LoseProcent;
     [HideInInspector] public int CompletedMissionsCount;
     [HideInInspector] public int CurrentScore;
     [HideInInspector] public int MaxScore;
+    [HideInInspector] public int MaxHackers;
 
     [HideInInspector] public List<Hacker.HackerStats> recrutHackerList;
     [HideInInspector] public List<Mission> CurrentMissions;
 
     private void Awake()
     {
-        CreateNewData();
+        //CreateNewData();
     }
 
-    private void CreateNewData()
+    public void CreateNewData()
     {
         HackerInfoData = new List<Hacker>();
         CurrentMissions = new List<Mission>();
         recrutHackerList = new List<Hacker.HackerStats>();
 
         LevelNumber = 0;
-        SabotageProcent = GetStartSabotageProcentByLevel(LevelNumber);
+        SabotageProcent = 0;
+        LoseProcent = 0;
         CompletedMissionsCount = 0;
         CurrentScore = 0;
-        MaxScore = 0;
+        //MaxScore = 0;
+        MaxHackers = 2;
+        GameManager.Instance.Updater.enabled = true;
     }
 
-    private int GetStartSabotageProcentByLevel(int levelNumber)
-    {
-        //TODO: create sabotage proc balance
-        return 50;
-    }
-
-        #region SaveLoad
+    #region SaveLoad
     private SaveData CreateSaveGameObject()
     {
         SaveData savedData = new SaveData();

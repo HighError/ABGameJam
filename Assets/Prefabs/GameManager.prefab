@@ -74,9 +74,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelNumber: 0
   SabotageProcent: 0
+  LoseProcent: 0
   CompletedMissionsCount: 0
   CurrentScore: 0
   MaxScore: 0
+  MaxHackers: 0
 --- !u!114 &3640347173436457612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +86,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3640347173436457841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cbd496e09e40ed4c9554bd8993e54c0, type: 3}
   m_Name: 
