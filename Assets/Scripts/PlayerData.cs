@@ -7,6 +7,7 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public int LevelNumber;
     [HideInInspector] public int SabotageProcent;
     [HideInInspector] public int CompletedMissionsCount;
+    [HideInInspector] public int CurrentScore;
 
     [HideInInspector] public List<Mission> CurrentMissions;
 
@@ -23,6 +24,7 @@ public class PlayerData : MonoBehaviour
         LevelNumber = 0;
         SabotageProcent = GetStartSabotageProcentByLevel(LevelNumber);
         CompletedMissionsCount = 0;
+        CurrentScore = 0;
     }
 
     private int GetStartSabotageProcentByLevel(int levelNumber)
