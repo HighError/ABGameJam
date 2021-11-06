@@ -117,4 +117,9 @@ MonoBehaviour:
     Specializations: 0100000002000000
   sounds:
   - {fileID: 8300000, guid: efb5f1b0875bbc7408e2352c2367f89a, type: 3}
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: d57b8ad20b4ab434292f3f1997f5e687, type: 3}
+  - {fileID: 21300000, guid: b4f7f91b46e9f7b41acc668123fcfb85, type: 3}
+  - {fileID: 21300000, guid: 9c378fd4c3f51f641a0f9275ec2f5957, type: 3}
+  - {fileID: 21300000, guid: 9c29fc5c9530bb84ba5d8cdb10f9d038, type: 3}
+  - {fileID: 21300000, guid: a4f891e4e8caeac4e8db790baa01381b, type: 3}
