@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4998330401848091425}
   - component: {fileID: 6308820240389146825}
   - component: {fileID: 2165425409097910169}
-  - component: {fileID: 951884080554262847}
+  - component: {fileID: 4661944412333595677}
   m_Layer: 5
   m_Name: MissionsWindow
   m_TagString: Untagged
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &951884080554262847
+--- !u!114 &4661944412333595677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,11 +88,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 846909868027365030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe33595534cd31b44a4904571d0b6aea, type: 3}
+  m_Script: {fileID: 11500000, guid: 938da769bb7c1b04785864dd71106a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClose: {fileID: 1369591479274826719}
   clicksCatcher: {fileID: 3442892572402022849}
+  missionItemPrefab: {fileID: 6163191113826503372, guid: d8771f135b3f6a74cb44781e2aeda30f, type: 3}
+  missionsContainer: {fileID: 3972763685670473466}
 --- !u!1 &3972763685670473461
 GameObject:
   m_ObjectHideFlags: 0

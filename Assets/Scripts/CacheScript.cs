@@ -74,4 +74,9 @@ public class CacheScript : MonoBehaviour
             return sprites[spriteName];
         return null;
     }
+
+    public int GetMissionsCount()
+    {
+        return missions.Count;
+    }
 }

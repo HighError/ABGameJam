@@ -1,29 +1,41 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MissionInfoPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI baseChanceText;
-    [SerializeField] private List<Image> specializationImage;
+    [SerializeField] private List<Image> specializationImages;
+    [SerializeField] private Button selectButton;
 
-    public void UpdateData(Mission mission)
+    private void Awake()
     {
-        titleText.text = mission.MissionData.Name;
-        baseChanceText.text = $"Базовий шанс успіху: {mission.MissionData.SuccessChance}%";
-        for (int i = 0; i < specializationImage.Count; i++)
+        selectButton.onClick.AddListener(SelectButtonOnClick);
+    }
+
+    public void UpdateData(MissionData missionData)
+    {
+        titleText.text = missionData.Name;
+        baseChanceText.text = $"Базовий шанс успіху: {missionData.SuccessChance}%";
+        for (int i = 0; i < specializationImages.Count; i++)
         {
-            if (i < mission.MissionData.Specializations.Count)
+            if (i < missionData.Specializations.Count)
             {
-                specializationImage[i].sprite = GameManager.Instance.Cache.GetSprite(mission.MissionData.Specializations[i].ToString());
+                specializationImages[i].sprite = GameManager.Instance.Cache.GetSprite(missionData.Specializations[i].ToString());
             }
             else
             {
-                specializationImage[i].gameObject.SetActive(false);
+                specializationImages[i].gameObject.SetActive(false);
             }
         }
     }
+
+    private void SelectButtonOnClick()
+    {
+        MissionsDetailInfoPanel missionInfoWindow = GameManager.Instance.InstantiateWindow("MissionsDetailInfoPanel").GetComponent<MissionsDetailInfoPanel>();
+        //missionInfoWindow
+    }
+
 }
