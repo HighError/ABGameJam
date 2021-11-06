@@ -27,5 +27,6 @@ public class RecrutWindow : BaseWindow
     public void OnHackerSelected(int index)
     {
         GameManager.Instance.PlayerData.HackerInfoData.Add(new Hacker { Stats = hackerList[index] });
+        HideWindow();
     }
 }

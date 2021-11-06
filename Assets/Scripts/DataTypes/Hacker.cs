@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Hacker
@@ -22,7 +21,7 @@ public class Hacker
             AvatarName = Consts.HACKER_AVATARS[Random.Range(0, Consts.HACKER_AVATARS.Length)],
             Specialization = new List<Enums.Specialization>()
         };
-        for (int i = 0; i < Random.Range(1,3);)
+        for (int i = 0; i < Random.Range(1, 3);)
         {
             var specialization = (Enums.Specialization)Random.Range(0, (int)Enums.Specialization.Distraction + 1);
             if (hackerStats.Specialization.Contains(specialization))

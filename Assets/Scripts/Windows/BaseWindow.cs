@@ -19,6 +19,8 @@ public class BaseWindow : MonoBehaviour
         buttonClose.onClick.AddListener(ButtonCloseOnClick);
 
         EventSystem.OnWindowsCloseNeeded += HideWindow;
+
+        ShowWindow();
     }
 
     public virtual void ShowWindow()
@@ -27,8 +29,11 @@ public class BaseWindow : MonoBehaviour
         rectTransform.anchoredPosition3D = hidingPos;
 
         if (clicksCatcher)
+        {
             clicksCatcher.sizeDelta = GameManager.Instance.UICanvas.GetComponent<RectTransform>().sizeDelta;
-
+            clicksCatcher.anchoredPosition3D = new Vector3(clicksCatcher.anchoredPosition3D.x,
+                clicksCatcher.anchoredPosition3D.y + Consts.MENU_PANEL_SIZE);
+        }
         LeanTween.moveLocal(gameObject, Vector3.zero, Consts.WINDOW_SHOWING_ANIM_TIME);
     }
 

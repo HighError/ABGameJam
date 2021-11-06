@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +7,11 @@ public class RecrutHackerInfoPanel : HackerInfoPanel
 
     private RecrutWindow recrutWindow;
     private int index;
+
+    private void Awake()
+    {
+        selectButton.onClick.AddListener(ButtonSelectOnClick);
+    }
 
     public void SetIndex(int _index)
     {
