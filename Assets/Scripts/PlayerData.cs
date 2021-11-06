@@ -35,7 +35,12 @@ public class PlayerData : MonoBehaviour
         CurrentScore = 0;
         //MaxScore = 0;
         MaxHackers = 2;
-        GameManager.Instance.Updater.enabled = true;
+    }
+
+    public void EndGame()
+    {
+        EventSystem.CallOnWindowsCloseNeeded();
+        GameManager.Instance.InstantiateWindow("LoseWindow");
     }
 
     #region SaveLoad

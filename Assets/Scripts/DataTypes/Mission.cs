@@ -18,11 +18,17 @@ public class Mission
     {
         if (DateTime.Now.Ticks > EndMissionTicks)
         {
-            GameManager.Instance.PlayerData.CurrentMissions.Remove(this);
-            GameManager.Instance.PlayerData.SabotageProcent += SabotageProcent;
+            CompleteMission();
             return true;
         }
         return false;
+    }
+
+    public void CompleteMission()
+    {
+        GameManager.Instance.PlayerData.CurrentMissions.Remove(this);
+        GameManager.Instance.PlayerData.SabotageProcent += SabotageProcent;
+        EventSystem.CallOnUpdateScoreNeeded();
     }
 }
 

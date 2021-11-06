@@ -15,6 +15,7 @@ public class StartMenuWindow : BaseWindow
     private void NewGameButtonOnClick()
     {
         GameManager.Instance.PlayerData.CreateNewData();
+        GameManager.Instance.Updater.enabled = true;
         EventSystem.CallOnUpdateScoreNeeded();
         HideWindow();
     }

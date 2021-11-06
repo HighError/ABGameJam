@@ -414,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6962668060499767307}
   m_Layer: 5
-  m_Name: Level
+  m_Name: LoseProcent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1143,6 +1143,10 @@ MonoBehaviour:
   recruitsButton: {fileID: 4796279699894378758}
   missionsButton: {fileID: 1785178510800426986}
   settingsButton: {fileID: 5754214314532807853}
+  sabotageProcentText: {fileID: 131466855091621405}
+  loseProcentText: {fileID: 8460338007398542269}
+  scoreText: {fileID: 3496889547248526400}
+  recordText: {fileID: 3141280641769676406}
 --- !u!1 &6962668061476606160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6962668061991846993}
   m_Layer: 5
-  m_Name: Level
+  m_Name: SabotageProcent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

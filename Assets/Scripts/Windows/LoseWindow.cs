@@ -17,11 +17,16 @@ public class LoseWindow : BaseWindow
 
     private void OKButtonOnClick()
     {
+        GameManager.Instance.InstantiateWindow("MainWindow");
         ButtonCloseOnClick();
     }
 
     private void SetScoreText()
     {
+        if (GameManager.Instance.PlayerData.CurrentScore >= GameManager.Instance.PlayerData.MaxScore)
+        {
+            scoreText.color = Color.yellow;
+        }
         scoreText.text = "Рахунок: " + GameManager.Instance.PlayerData.CurrentScore.ToString();
     }
 }
