@@ -12,6 +12,7 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public int CurrentScore;
     [HideInInspector] public int MaxScore;
 
+    [HideInInspector] public List<Hacker.HackerStats> recrutHackerList;
     [HideInInspector] public List<Mission> CurrentMissions;
 
     private void Awake()
@@ -23,6 +24,7 @@ public class PlayerData : MonoBehaviour
     {
         HackerInfoData = new List<Hacker>();
         CurrentMissions = new List<Mission>();
+        recrutHackerList = new List<Hacker.HackerStats>();
 
         LevelNumber = 0;
         SabotageProcent = GetStartSabotageProcentByLevel(LevelNumber);

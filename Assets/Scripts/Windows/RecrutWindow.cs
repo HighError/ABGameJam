@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class RecrutWindow : BaseWindow
 {
-    private const int INIT_HACKERS = 3;
-
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject prefabItem;
 
-    private List<Hacker.HackerStats> hackerList;
+    [SerializeField] private List<RecrutHackerInfoPanel> recrutHackerInfoPanel;
 
     private void Start()
     {
-        hackerList = new List<Hacker.HackerStats>();
-        for (int i = 0; i < INIT_HACKERS; i++)
+        recrutHackerInfoPanel = new List<RecrutHackerInfoPanel>();
+        for (int i = 0; i < GameManager.Instance.PlayerData.recrutHackerList.Count; i++)
         {
-            hackerList.Add(Hacker.CreateRandomStats());
-            var panel = Instantiate(prefabItem, content.transform).GetComponent<RecrutHackerInfoPanel>();
-            panel.SetIndex(i);
-            panel.SetRecrutWindow(this);
-            panel.UpdateData(new Hacker { Stats = hackerList[i] });
+            recrutHackerInfoPanel.Add(Instantiate(prefabItem, content.transform).GetComponent<RecrutHackerInfoPanel>());
+            recrutHackerInfoPanel[i].SetIndex(i);
+            recrutHackerInfoPanel[i].SetRecrutWindow(this);
+            recrutHackerInfoPanel[i].UpdateData(new Hacker { Stats = GameManager.Instance.PlayerData.recrutHackerList[i] });
         }
     }
 
     public void OnHackerSelected(int index)
     {
-        GameManager.Instance.PlayerData.HackerInfoData.Add(new Hacker { Stats = hackerList[index] });
+        GameManager.Instance.PlaySound("ButtonClick");
+        GameManager.Instance.PlayerData.HackerInfoData.Add(new Hacker { Stats = GameManager.Instance.PlayerData.recrutHackerList[index] });
+        GameManager.Instance.PlayerData.recrutHackerList.RemoveAt(index);
         HideWindow();
     }
 }
