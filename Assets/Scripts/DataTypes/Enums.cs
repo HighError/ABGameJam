@@ -6,8 +6,10 @@ public class Enums
 {
     public enum Specialization
     {
-        S1,
-        S2,
-        S3,
+        Robotics,
+        Servers,
+        LocalPoints,
+        Stelth,
+        Distraction
     }
 }
