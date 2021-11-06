@@ -17,7 +17,7 @@ public class LoseWindow : BaseWindow
 
     private void OKButtonOnClick()
     {
-        HideWindow();
+        ButtonCloseOnClick();
     }
 
     private void SetScoreText()

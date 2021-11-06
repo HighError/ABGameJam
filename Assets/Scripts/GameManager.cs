@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
         return Instantiate(Cache.GetWindowByName(windowName), Consts.DEFAULT_WINDOW_SPAWN_POSITION, Quaternion.identity, UICanvas.transform);
     }
 
+    public void PlaySound(string soundName)
+    {
+        GetComponent<AudioSource>().PlayOneShot(Cache.GetSound(soundName));
+    }
+
     private void OnApplicationPause(bool pause)
     {
         if (pause)
