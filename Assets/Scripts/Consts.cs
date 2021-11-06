@@ -32,6 +32,10 @@ public class Consts
 
     public static string[] HACKER_AVATARS = new string[]
     {
-        "Avatar1",
+        "Hacker1",
+        "Hacker2",
+        "Hacker3",
+        "Hacker4",
+        "Hacker5",
     };
 }
