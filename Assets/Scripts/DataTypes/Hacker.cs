@@ -8,6 +8,7 @@ public class Hacker
     public struct HackerStats
     {
         public string Name;
+        public string AvatarName;
         public List<Enums.Specialization> Specialization;
     }
 }
