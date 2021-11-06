@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MyHackersWindowScript : BaseWindow
 {
     [SerializeField] private GameObject hackerInfoPrefab;
     [SerializeField] private RectTransform hackersInfoContainer;
+    [SerializeField] private List<HackerInfoPanel> hackerInfoPanels;
 
     private const float SPACING = 10;
 
@@ -20,6 +22,25 @@ public class MyHackersWindowScript : BaseWindow
         {
             HackerInfoPanel hackerInfo = Instantiate(hackerInfoPrefab, hackersInfoContainer).GetComponent<HackerInfoPanel>();
             hackerInfo.UpdateData(hacker);
+
+            hackerInfoPanels.Add(hackerInfo);
+        }
+    }
+
+    public void HideBusyHackers()
+    {
+        foreach (var hackerInfo in hackerInfoPanels)
+        {
+            if (hackerInfo.IsHackerBusy())
+                hackerInfo.gameObject.SetActive(false);
+        }
+    }
+
+    public void EnableButtonsAndHideStatus()
+    {
+        foreach (var hackerInfo in hackerInfoPanels)
+        {
+            hackerInfo.DisableStatusAndEnableButton();
         }
     }
 }

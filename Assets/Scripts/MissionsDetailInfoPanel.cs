@@ -8,8 +8,9 @@ public class MissionsDetailInfoPanel : BaseWindow
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI chanceText;
     [SerializeField] private List<Image> specializationImages;
-    [SerializeField] private List<GameObject> addButtons;
-    [SerializeField] private List<GameObject> hackersInfo;
+    [SerializeField] private List<GameObject> addHackerObjects;
+    [SerializeField] private List<GameObject> hackerInfoObjects;
+    [SerializeField] private List<Hacker> selectedHackers;
 
     private MissionData missionData;
 
@@ -31,5 +32,11 @@ public class MissionsDetailInfoPanel : BaseWindow
     {
         //TODO: create proc calculation
         return missionData.RewardProcent;
+    }
+
+    private void AddHackerButtonOnClick()
+    {
+        MyHackersWindowScript hackersWindow = GameManager.Instance.InstantiateWindow("MyHackersWindow").GetComponent<MyHackersWindowScript>();
+        hackersWindow.HideBusyHackers();
     }
 }

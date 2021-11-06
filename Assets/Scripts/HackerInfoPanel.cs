@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,6 +9,15 @@ public class HackerInfoPanel : MonoBehaviour
     [SerializeField] private List<Image> specializationList;
     [SerializeField] private Image avatar;
     [SerializeField] private TextMeshProUGUI statusText;
+    [SerializeField] private Button selectButton;
+
+    private bool isBusy;
+
+    private void Awake()
+    {
+        selectButton.onClick.AddListener(SelectButtonOnClick);
+    }
+
     public void UpdateData(Hacker hacker)
     {
         hackerNameText.text = hacker.Stats.Name;
@@ -29,7 +37,10 @@ public class HackerInfoPanel : MonoBehaviour
         {
             return;
         }
-        if (hacker.IsBusy)
+
+        isBusy = hacker.IsBusy;
+
+        if (isBusy)
         {
             statusText.text = "Зайнятий";
             statusText.color = Color.red;
@@ -39,5 +50,21 @@ public class HackerInfoPanel : MonoBehaviour
             statusText.text = "Доступний";
             statusText.color = Color.green;
         }
+    }
+
+    public bool IsHackerBusy()
+    {
+        return isBusy;
+    }
+
+    public void DisableStatusAndEnableButton()
+    {
+        statusText.gameObject.SetActive(false);
+        selectButton.gameObject.SetActive(true);
+    }
+
+    private void SelectButtonOnClick()
+    {
+
     }
 }
