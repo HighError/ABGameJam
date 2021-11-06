@@ -5,6 +5,7 @@ public class Mission
 {
     public Hacker Hacker;
     public int SabotageProcent;
+    public int SuccessChance;
     public long EndMissionTicks;
 
     public void StartMission()
@@ -29,6 +30,8 @@ public class MissionData
 {
     public int Id;
     public string Name;
+    public int SuccessChance;
     public int RewardProcent;
+    public double Minutes;
     public List<Enums.Specialization> Specializations;
 }
