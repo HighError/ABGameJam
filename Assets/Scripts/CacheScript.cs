@@ -7,6 +7,7 @@ public class CacheScript : MonoBehaviour
 
     private Dictionary<string, GameObject> prefabs;
     private Dictionary<string, BaseWindow> windows;
+    private Dictionary<int, MissionData> missions;
 
     private void Awake()
     {
@@ -19,6 +20,11 @@ public class CacheScript : MonoBehaviour
         foreach (var window in cacheSO.windows)
         {
             windows.Add(window.name, window);
+        }
+        missions = new Dictionary<int, MissionData>();
+        foreach (var mission in cacheSO.missions)
+        {
+            missions.Add(mission.Id, mission);
         }
     }
 
@@ -33,6 +39,13 @@ public class CacheScript : MonoBehaviour
     {
         if (windows.ContainsKey(windowName))
             return windows[windowName];
+        return null;
+    }
+
+    public MissionData GetMissionById(int id)
+    {
+        if (missions.ContainsKey(id))
+            return missions[id];
         return null;
     }
 }

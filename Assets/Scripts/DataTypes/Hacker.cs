@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Hacker
 {
     public HackerStats Stats;
@@ -6,5 +8,6 @@ public class Hacker
     public struct HackerStats
     {
         public string Name;
+        public List<Enums.Specialization> Specialization;
     }
 }

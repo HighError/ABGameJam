@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Mission
 {
@@ -21,4 +22,13 @@ public class Mission
         }
         return false;
     }
+}
+
+[System.Serializable]
+public class MissionData
+{
+    public int Id;
+    public string Name;
+    public int RewardProcent;
+    public List<Enums.Specialization> Specializations;
 }
