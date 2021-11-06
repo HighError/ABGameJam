@@ -12,4 +12,10 @@ public class Enums
         Stelth,
         Distraction
     }
+
+    public enum Notification
+    {
+        Mission,
+        Error
+    }
 }

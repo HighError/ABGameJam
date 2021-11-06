@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
     public Canvas UICanvas { get; private set; }
     public CacheScript Cache { get; private set; }
     public PlayerData PlayerData { get; private set; }
-    public Updater Updater {  get; private set; }
+    public Updater Updater { get; private set; }
+    public NotificationManager NotificationManager {get; private set;}
 
     private void Awake()
     {
         Instance = this;
         UICanvas = GameObject.FindGameObjectWithTag("UICanvas").GetComponent<Canvas>();
+        NotificationManager = GameObject.FindGameObjectWithTag("NotificationManager").GetComponent<NotificationManager>();
         Cache = GetComponent<CacheScript>();
         PlayerData = GetComponent<PlayerData>();
         Updater = GetComponent<Updater>();

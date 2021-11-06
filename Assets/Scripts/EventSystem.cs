@@ -16,4 +16,7 @@ public class EventSystem
 
     public static event EventHandler OnEnableMissionDetailWindowNeeded;
     public static void CallOnEnableMissionDetailWindowNeeded() { if (OnEnableMissionDetailWindowNeeded != null) OnEnableMissionDetailWindowNeeded(); }
+
+    public static event EventHandler OnRecordUpdateNeeded;
+    public static void CallOnRecordUpdateNeeded() { if (OnRecordUpdateNeeded != null) OnRecordUpdateNeeded(); }
 }

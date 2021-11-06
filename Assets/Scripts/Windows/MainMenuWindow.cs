@@ -25,6 +25,7 @@ public class MainMenuWindow : MonoBehaviour
         settingsButton.onClick.AddListener(SettingsButtonOnClick);
 
         EventSystem.OnUpdateScoreNeeded += UpdateProcentsAndScore;
+        EventSystem.OnRecordUpdateNeeded += UpdateRecord;
     }
 
     private void HyHackersButtonOnClick()
@@ -60,6 +61,16 @@ public class MainMenuWindow : MonoBehaviour
         sabotageProcentText.text = $"{GameManager.Instance.PlayerData.SabotageProcent}%";
         loseProcentText.text = $"{GameManager.Instance.PlayerData.LoseProcent}%";
         scoreText.text = GameManager.Instance.PlayerData.CurrentScore.ToString();
+
+        //CHECK: Тут провіряється поразка або перехід на наступний рівень
+        if (GameManager.Instance.PlayerData.SabotageProcent >= 100)
+        {
+            GameManager.Instance.PlayerData.NextLevel();
+        }
+        else if (GameManager.Instance.PlayerData.LoseProcent >= 100)
+        {
+            GameManager.Instance.PlayerData.EndGame();
+        }
     }
 
     public void UpdateRecord()

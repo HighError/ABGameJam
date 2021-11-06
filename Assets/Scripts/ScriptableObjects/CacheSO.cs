@@ -8,4 +8,5 @@ public class CacheSO : ScriptableObject
     public MissionData[] missions;
     public AudioClip[] sounds;
     public Sprite[] sprites;
+    public City[] cities;
 }

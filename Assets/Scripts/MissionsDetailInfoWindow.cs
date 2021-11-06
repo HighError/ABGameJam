@@ -52,8 +52,8 @@ public class MissionsDetailInfoWindow : BaseWindow
 
         rewardPointsText.text = "+" + _missionData.RewardProcent.ToString() + "%";
         losePointsText.text = "+" + _missionData.LoseProcent.ToString() + "%";
-        rewardScoreText.text = _missionData.RewardProcent.ToString(); //TODO: create scores
-        loseScoreText.text = _missionData.LoseProcent.ToString();
+        rewardScoreText.text = $"+{_missionData.CalculateScore(true, CalculateSuccessChance())}";
+        loseScoreText.text = _missionData.CalculateScore(false, CalculateSuccessChance()).ToString();
     }
 
     private int CalculateSuccessChance()
@@ -80,7 +80,10 @@ public class MissionsDetailInfoWindow : BaseWindow
             hackersWindow.EnableButtonsAndHideStatus();
             gameObject.SetActive(false);
         }
-        //TODO: add something to notificate that there is no hackers available
+        else
+        {
+            GameManager.Instance.NotificationManager.AddNotification(Enums.Notification.Error);
+        }
     }
 
     protected override void OnDestroy()
@@ -137,6 +140,7 @@ public class MissionsDetailInfoWindow : BaseWindow
 
         Mission mission = new Mission() { MissionData = missionData, Hackers = selectedHackers, SuccessChance = CalculateSuccessChance() };
         mission.StartMission();
+        GameManager.Instance.NotificationManager.AddNotification(Enums.Notification.Mission, mission);
         GameManager.Instance.PlayerData.CurrentMissions.Add(mission);
         HideWindow();
     }

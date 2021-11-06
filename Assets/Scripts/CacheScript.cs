@@ -10,6 +10,7 @@ public class CacheScript : MonoBehaviour
     private Dictionary<int, MissionData> missions;
     private Dictionary<string, AudioClip> sounds;
     private Dictionary<string, Sprite> sprites;
+    private Dictionary<string, City> cities;
 
     private void Awake()
     {
@@ -37,6 +38,11 @@ public class CacheScript : MonoBehaviour
         foreach (var sprite in cacheSO.sprites)
         {
             sprites.Add(sprite.name, sprite);
+        }
+        cities = new Dictionary<string, City>();
+        foreach (var city in cacheSO.cities)
+        {
+            cities.Add(city.Name, city);
         }
     }
 
@@ -72,6 +78,13 @@ public class CacheScript : MonoBehaviour
     {
         if (sprites.ContainsKey(spriteName))
             return sprites[spriteName];
+        return null;
+    }
+
+    public City GetCity(string cityName)
+    {
+        if (cities.ContainsKey(cityName))
+            return cities[cityName];
         return null;
     }
 

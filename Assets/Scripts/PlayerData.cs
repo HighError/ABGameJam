@@ -33,8 +33,17 @@ public class PlayerData : MonoBehaviour
         LoseProcent = 0;
         CompletedMissionsCount = 0;
         CurrentScore = 0;
-        //MaxScore = 0;
         MaxHackers = 2;
+    }
+
+    public void NextLevel()
+    {
+        EventSystem.CallOnWindowsCloseNeeded();
+        GameManager.Instance.InstantiateWindow("NextLevelWindow");
+        LevelNumber++;
+        SabotageProcent = 0;
+        LoseProcent = 0;
+        MaxHackers += 1;
     }
 
     public void EndGame()
@@ -74,6 +83,8 @@ public class PlayerData : MonoBehaviour
             file.Close();
 
             MaxScore = savedData.MaxScore;
+            //CHECK: Тут оновлюю панель рекорду
+            EventSystem.CallOnRecordUpdateNeeded();
 
             Debug.Log("Game Loaded");
         }
