@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 3034274367781877192}
   - component: {fileID: 5207805434867904770}
   - component: {fileID: 7635886655596762060}
+  - component: {fileID: 2887042698023735015}
   m_Layer: 5
   m_Name: Select
   m_TagString: Untagged
@@ -682,6 +683,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2887042698023735015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766925216829053521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 7635886655596762060}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9179279154545780032
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +738,7 @@ GameObject:
   - component: {fileID: 8442689395359314976}
   - component: {fileID: 171955474054284228}
   - component: {fileID: 7090128772086587311}
+  - component: {fileID: 7169084196964372332}
   m_Layer: 5
   m_Name: RecrutHackerItem
   m_TagString: Untagged
@@ -721,7 +767,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_SizeDelta: {x: 1410, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &171955474054284228
 CanvasRenderer:
@@ -761,3 +807,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7169084196964372332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179279154545780032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d704ba2f393c748b350aaf5ff4ca97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hackerNameText: {fileID: 4673561502429713509}
+  specializationList:
+  - {fileID: 7221678159292950520}
+  - {fileID: 4048247787228577775}
+  - {fileID: 3656415890976122720}
+  avatar: {fileID: 7703420639231813488}
+  statusText: {fileID: 0}
+  selectButton: {fileID: 2887042698023735015}

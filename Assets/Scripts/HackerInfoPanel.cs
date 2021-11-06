@@ -25,6 +25,10 @@ public class HackerInfoPanel : MonoBehaviour
                 specializationList[i].gameObject.SetActive(false);
             }
         }
+        if (!statusText)
+        {
+            return;
+        }
         if (hacker.IsBusy)
         {
             statusText.text = "Зайнятий";

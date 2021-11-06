@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class Hacker
 {
@@ -10,5 +12,25 @@ public class Hacker
         public string Name;
         public string AvatarName;
         public List<Enums.Specialization> Specialization;
+    }
+
+    public static HackerStats CreateRandomStats()
+    {
+        HackerStats hackerStats = new HackerStats
+        {
+            Name = Consts.HACKER_NAMES[Random.Range(0, Consts.HACKER_NAMES.Length)],
+            AvatarName = Consts.HACKER_AVATARS[Random.Range(0, Consts.HACKER_AVATARS.Length)]
+        };
+        for (int i = 0; i < Random.Range(1,3);)
+        {
+            var specialization = (Enums.Specialization)Random.Range(0, (int)Enums.Specialization.Distraction + 1);
+            if (hackerStats.Specialization.Contains(specialization))
+            {
+                continue;
+            }
+            hackerStats.Specialization.Add(specialization);
+            i++;
+        }
+        return hackerStats;
     }
 }
