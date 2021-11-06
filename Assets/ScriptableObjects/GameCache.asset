@@ -15,7 +15,11 @@ MonoBehaviour:
   prefabs: []
   windows:
   - {fileID: 5736199801645081731, guid: a6666979909f14e41b8af4c6ea7e1cc9, type: 3}
-  - {fileID: 7958936180785218941, guid: e85f94c9379c52148857cb5fa0f3e075, type: 3}
+  - {fileID: 8848465844211187221, guid: ff819a9c8b4791a479cf40e3b1c02306, type: 3}
+  - {fileID: 8744024077684665344, guid: d160e147ebaa6d64d82ef5deeb8fd136, type: 3}
+  - {fileID: 7661649880405097685, guid: 41d38f2b3c92ff649a0028ba70952d1c, type: 3}
+  - {fileID: 951884080554262847, guid: 6382481add6857c439169f4c59d91338, type: 3}
+  - {fileID: 6527014760403328711, guid: b5e60b6cb4c12804fa5454dcf34cbd0e, type: 3}
   missions:
   - Id: 0
     Name: "\u0412\u0438\u043A\u0440\u0430\u0441\u0442\u0438 \u0434\u0430\u043D\u0456
@@ -113,3 +117,4 @@ MonoBehaviour:
     Specializations: 0100000002000000
   sounds:
   - {fileID: 8300000, guid: efb5f1b0875bbc7408e2352c2367f89a, type: 3}
+  sprites: []
