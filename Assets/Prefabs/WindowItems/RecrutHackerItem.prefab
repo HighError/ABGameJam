@@ -827,3 +827,4 @@ MonoBehaviour:
   avatar: {fileID: 7703420639231813488}
   statusText: {fileID: 0}
   selectButton: {fileID: 2887042698023735015}
+  selectRecruitButton: {fileID: 2887042698023735015}

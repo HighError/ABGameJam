@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 5728205919157597205}
   - component: {fileID: 503942522127706730}
   - component: {fileID: 6663996541441160141}
+  - component: {fileID: 3463727098457689469}
   m_Layer: 5
   m_Name: Hacker
   m_TagString: Untagged
@@ -287,6 +288,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3463727098457689469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734886985507025699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de096d8479a8b6343bd585963aeab11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hackerNameText: {fileID: 7126190807738696845}
+  specializationList:
+  - {fileID: 6358262409198565240}
+  - {fileID: 2308272843915277726}
+  - {fileID: 8534043099738384264}
+  cancelButton: {fileID: 8991015106924570560}
 --- !u!1 &5104580329419785093
 GameObject:
   m_ObjectHideFlags: 0

@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleText: {fileID: 7651764222160010217}
   baseChanceText: {fileID: 7222158567955791988}
-  specializationImage:
+  specializationImages:
   - {fileID: 5680123722040215668}
   - {fileID: 1352513109438582883}
   - {fileID: 1753420370508630252}
@@ -404,7 +404,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: -30, y: 50}
+  m_SizeDelta: {x: -30, y: 75}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5071740922746675278
 CanvasRenderer:
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

@@ -11,6 +11,9 @@ public class HackerInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private Button selectButton;
 
+    private MyHackersWindowScript windowScript;
+    private Hacker hacker;
+
     private bool isBusy;
 
     private void Awake()
@@ -20,6 +23,7 @@ public class HackerInfoPanel : MonoBehaviour
 
     public void UpdateData(Hacker hacker)
     {
+        this.hacker = hacker;
         hackerNameText.text = hacker.Stats.Name;
         avatar.sprite = GameManager.Instance.Cache.GetSprite(hacker.Stats.AvatarName);
         for (int i = 0; i < specializationList.Count; i++)
@@ -34,9 +38,7 @@ public class HackerInfoPanel : MonoBehaviour
             }
         }
         if (!statusText)
-        {
             return;
-        }
 
         isBusy = hacker.IsBusy;
 
@@ -63,8 +65,22 @@ public class HackerInfoPanel : MonoBehaviour
         selectButton.gameObject.SetActive(true);
     }
 
-    private void SelectButtonOnClick()
+    public void SetWindowScript(MyHackersWindowScript hackersWindowScript)
     {
+        windowScript = hackersWindowScript;
+    }
 
+    protected virtual void SelectButtonOnClick()
+    {
+        GameManager.Instance.PlaySound("ButtonClick");
+
+        windowScript.HideWindow();
+        MissionsDetailInfoWindow.currentHacker = hacker;
+        LeanTween.delayedCall(Consts.WINDOW_SHOWING_ANIM_TIME, () => EventSystem.CallOnEnableMissionDetailWindowNeeded());
+    }
+
+    public Hacker GetHacker()
+    {
+        return hacker;
     }
 }

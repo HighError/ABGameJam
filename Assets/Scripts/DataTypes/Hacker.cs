@@ -33,4 +33,23 @@ public class Hacker
         }
         return hackerStats;
     }
+
+    public bool IsEqual(Hacker other)
+    {
+        return IsBusy == other.IsBusy
+            && Stats.AvatarName == other.Stats.AvatarName
+            && Stats.Name == other.Stats.Name
+            && IsEqualSpecializations(other.Stats.Specialization);
+    }
+
+    private bool IsEqualSpecializations(List<Enums.Specialization> other)
+    {
+        foreach (var spec in Stats.Specialization)
+        {
+            if (!other.Contains(spec))
+                return false;
+        }
+
+        return true;
+    }
 }

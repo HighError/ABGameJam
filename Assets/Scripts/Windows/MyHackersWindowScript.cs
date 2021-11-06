@@ -9,8 +9,9 @@ public class MyHackersWindowScript : BaseWindow
 
     private const float SPACING = 10;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         InitHackersInfo();
     }
 
@@ -22,6 +23,7 @@ public class MyHackersWindowScript : BaseWindow
         {
             HackerInfoPanel hackerInfo = Instantiate(hackerInfoPrefab, hackersInfoContainer).GetComponent<HackerInfoPanel>();
             hackerInfo.UpdateData(hacker);
+            hackerInfo.SetWindowScript(this);
 
             hackerInfoPanels.Add(hackerInfo);
         }
@@ -33,6 +35,25 @@ public class MyHackersWindowScript : BaseWindow
         {
             if (hackerInfo.IsHackerBusy())
                 hackerInfo.gameObject.SetActive(false);
+        }
+    }
+
+    public void HideSelectedHackers(List<Hacker> selectedHackers)
+    {
+        foreach (var hacker in selectedHackers)
+        {
+            List<HackerInfoPanel> panels = hackerInfoPanels.FindAll((el) =>
+            {
+                return el.GetHacker().IsEqual(hacker);
+            });
+            foreach (var panel in panels)
+            {
+                if (panel.gameObject.activeSelf)
+                {
+                    panel.gameObject.SetActive(false);
+                    break;
+                }
+            }
         }
     }
 

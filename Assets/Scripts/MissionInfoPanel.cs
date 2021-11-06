@@ -10,13 +10,17 @@ public class MissionInfoPanel : MonoBehaviour
     [SerializeField] private List<Image> specializationImages;
     [SerializeField] private Button selectButton;
 
+    private MissionData missionData;
+
     private void Awake()
     {
         selectButton.onClick.AddListener(SelectButtonOnClick);
     }
 
-    public void UpdateData(MissionData missionData)
+    public void UpdateData(MissionData _missionData)
     {
+        missionData = _missionData;
+
         titleText.text = missionData.Name;
         baseChanceText.text = $"Базовий шанс успіху: {missionData.SuccessChance}%";
         for (int i = 0; i < specializationImages.Count; i++)
@@ -34,8 +38,8 @@ public class MissionInfoPanel : MonoBehaviour
 
     private void SelectButtonOnClick()
     {
-        MissionsDetailInfoPanel missionInfoWindow = GameManager.Instance.InstantiateWindow("MissionsDetailInfoPanel").GetComponent<MissionsDetailInfoPanel>();
-        //missionInfoWindow
+        EventSystem.CallOnWindowsCloseNeeded();
+        MissionsDetailInfoWindow missionInfoWindow = GameManager.Instance.InstantiateWindow("MissionsDetailInfoWindow").GetComponent<MissionsDetailInfoWindow>();
+        missionInfoWindow.UpdateData(missionData);
     }
-
 }

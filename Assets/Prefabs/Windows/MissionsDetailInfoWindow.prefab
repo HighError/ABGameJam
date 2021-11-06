@@ -609,7 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4234936784244738392}
   m_Layer: 5
-  m_Name: Progress
+  m_Name: Chance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2058,7 +2058,7 @@ GameObject:
   - component: {fileID: 2367180426710878302}
   - component: {fileID: 7340815022682456271}
   m_Layer: 5
-  m_Name: TakeMissionWindow
+  m_Name: MissionsDetailInfoWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2152,6 +2152,11 @@ MonoBehaviour:
   - {fileID: 4669887695820935203}
   - {fileID: 491696343212269815}
   - {fileID: 8125656664047521390}
+  rewardPointsText: {fileID: 4436662549668887753}
+  losePointsText: {fileID: 1781097528797826332}
+  rewardScoreText: {fileID: 6544562191454698252}
+  loseScoreText: {fileID: 1791472815674507431}
+  startMissionButton: {fileID: 6810160775432985719}
 --- !u!1 &4009130579593703174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,7 +2529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6625200422915223731}
   m_Layer: 5
-  m_Name: Progress
+  m_Name: Chance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

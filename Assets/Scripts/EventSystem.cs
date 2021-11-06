@@ -13,4 +13,7 @@ public class EventSystem
 
     public static event EventHandler OnUpdateScoreNeeded;
     public static void CallOnUpdateScoreNeeded() { if (OnUpdateScoreNeeded != null) OnUpdateScoreNeeded(); }
+
+    public static event EventHandler OnEnableMissionDetailWindowNeeded;
+    public static void CallOnEnableMissionDetailWindowNeeded() { if (OnEnableMissionDetailWindowNeeded != null) OnEnableMissionDetailWindowNeeded(); }
 }

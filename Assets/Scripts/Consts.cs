@@ -8,6 +8,9 @@ public class Consts
     public static float RECRUTE_REFRESH_TIME = 300f;
     public static int RECRUTE_MAX_COUNT = 3;
 
+    public static int SPECIALIZED_HACKER_SUCCESS_CHANCE = 10;
+    public static int HACKER_SUCCESS_CHANCE = 5;
+
     public static string[] HACKER_NAMES = new string[]
     {
         "Chaz",

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 
 public class Mission
 {
-    public Hacker Hacker;
-    public int SabotageProcent;
+    public List<Hacker> Hackers;
     public int SuccessChance;
     public long EndMissionTicks;
     public MissionData MissionData;
 
     public void StartMission()
     {
+        foreach (var hacker in Hackers)
+            hacker.IsBusy = true;
 
+        EndMissionTicks = DateTime.Now.AddMinutes(MissionData.Minutes).Ticks;
     }
 
     public bool CheckCompleted()
@@ -27,7 +29,19 @@ public class Mission
     public void CompleteMission()
     {
         GameManager.Instance.PlayerData.CurrentMissions.Remove(this);
-        GameManager.Instance.PlayerData.SabotageProcent += SabotageProcent;
+        foreach (var hacker in Hackers)
+            hacker.IsBusy = false;
+
+        if (UnityEngine.Random.Range(0, 101) < MissionData.SuccessChance)
+        {
+            GameManager.Instance.PlayerData.SabotageProcent += MissionData.RewardProcent;
+            GameManager.Instance.PlayerData.CurrentScore += MissionData.RewardProcent; //TODO: set correct score
+        }
+        else
+        {
+            GameManager.Instance.PlayerData.LoseProcent += MissionData.LoseProcent;
+            GameManager.Instance.PlayerData.CurrentScore -= MissionData.LoseProcent; //TODO: set correct score
+        }
         EventSystem.CallOnUpdateScoreNeeded();
     }
 }
