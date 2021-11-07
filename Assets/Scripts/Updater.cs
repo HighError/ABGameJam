@@ -38,4 +38,14 @@ public class Updater : MonoBehaviour
         time = 0f;
         rectuteUpdateTime = Consts.RECRUTE_REFRESH_TIME;
     }
+
+    public float GetRecruteUpdateTime()
+    {
+        return rectuteUpdateTime;
+    }
+
+    public void SetRecruteUpdateTime(float _rectuteUpdateTime)
+    {
+        rectuteUpdateTime = _rectuteUpdateTime;
+    }
 }

@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Hacker
 {
     public HackerStats Stats;
     public bool IsBusy;
 
+    [System.Serializable]
     public struct HackerStats
     {
         public string Name;

@@ -36,7 +36,10 @@ public class PlayerData : MonoBehaviour
         LoseProcent = 0;
         CompletedMissionsCount = 0;
         CurrentScore = 0;
+        MaxScore = 0;
         MaxHackers = 2;
+        NoMusic = false;
+        NoSound = false;
     }
 
     public void NextLevel()
@@ -59,9 +62,19 @@ public class PlayerData : MonoBehaviour
     private SaveData CreateSaveGameObject()
     {
         SaveData savedData = new SaveData();
+        savedData.HackerInfoData =HackerInfoData;
+        savedData.LevelNumber = LevelNumber;
+        savedData.SabotageProcent = SabotageProcent;
+        savedData.LoseProcent = LoseProcent;
+        savedData.CompletedMissionsCount = CompletedMissionsCount;
+        savedData.CurrentScore = CurrentScore;
         savedData.MaxScore = MaxScore;
+        savedData.MaxHackers = MaxHackers;
+        savedData.recrutHackerList = recrutHackerList;
+        savedData.CurrentMissions = CurrentMissions;
         savedData.NoMusic = NoMusic;
         savedData.NoSound = NoSound;
+        savedData.RectuteUpdateTime = GameManager.Instance.Updater.GetRecruteUpdateTime();
 
         return savedData;
     }
@@ -87,9 +100,19 @@ public class PlayerData : MonoBehaviour
             SaveData savedData = (SaveData)bf.Deserialize(file);
             file.Close();
 
+            HackerInfoData = savedData.HackerInfoData;
+            LevelNumber = savedData.LevelNumber;
+            SabotageProcent = savedData.SabotageProcent;
+            LoseProcent = savedData.LoseProcent;
+            CompletedMissionsCount = savedData.CompletedMissionsCount;
+            CurrentScore = savedData.CurrentScore;
             MaxScore = savedData.MaxScore;
+            MaxHackers = savedData.MaxHackers;
+            recrutHackerList = savedData.recrutHackerList;
+            CurrentMissions = savedData.CurrentMissions;
             NoMusic = savedData.NoMusic;
             NoSound = savedData.NoSound;
+            GameManager.Instance.Updater.SetRecruteUpdateTime(savedData.RectuteUpdateTime);
 
             AdditionalAfterLoadActions();
 
@@ -97,7 +120,7 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
-            MaxScore = 0;
+            CreateNewData();
 
             Debug.Log("No game saved!");
         }
@@ -113,7 +136,20 @@ public class PlayerData : MonoBehaviour
 [System.Serializable]
 public class SaveData
 {
+    public List<Hacker> HackerInfoData;
+    public int LevelNumber;
+    public int SabotageProcent;
+    public int LoseProcent;
+    public int CompletedMissionsCount;
+    public int CurrentScore;
     public int MaxScore;
+    public int MaxHackers;
+
+    public List<Hacker.HackerStats> recrutHackerList;
+    public List<Mission> CurrentMissions;
+
     public bool NoMusic;
     public bool NoSound;
+
+    public float RectuteUpdateTime;
 }

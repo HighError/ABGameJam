@@ -250,7 +250,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 8323877029494783993}
   m_OnClick:
     m_PersistentCalls:
@@ -347,8 +347,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClose: {fileID: 2964255306078255542}
-  clicksCatcher: {fileID: 0}
+  clicksCatcher: {fileID: 8902817456964538059}
   newGameButton: {fileID: 845715383181607672}
+  continueButton: {fileID: 5269460606937921936}
 --- !u!1 &2805222213279541949
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,4 +22,7 @@ public class EventSystem
 
     public static event EventHandler OnSoundSettingsUpdateNeeded;
     public static void CallOnSoundSettingsUpdateNeeded() { if (OnSoundSettingsUpdateNeeded != null) OnSoundSettingsUpdateNeeded(); }
+
+    public static event EventHandler OnNotificationsShowNeeded;
+    public static void CallOnNotificationsShowNeeded() { if (OnNotificationsShowNeeded != null) OnNotificationsShowNeeded(); }
 }
