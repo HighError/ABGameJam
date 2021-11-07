@@ -25,10 +25,12 @@ public class NotificationManager : MonoBehaviour
         {
             MissionNotification missionNotification = Instantiate(missionPrefab, content.transform).GetComponent<MissionNotification>();
             missionNotification.SetInformation(mission);
+            missionNotification.OpenNotification();
         }
         else if (type == Enums.Notification.Error)
         {
-            Instantiate(errorPrefab, content.transform);
+            ErrorNotification notification = Instantiate(errorPrefab, content.transform).GetComponent<ErrorNotification>();
+            notification.OpenNotification();
         }
         UpdateSizeContent();
     }

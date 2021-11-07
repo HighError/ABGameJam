@@ -138,6 +138,9 @@ public class MissionsDetailInfoWindow : BaseWindow
     {
         GameManager.Instance.PlaySound("ButtonClick");
 
+        if (selectedHackers.Count == 0)
+            return;
+
         Mission mission = new Mission() { MissionData = missionData, Hackers = selectedHackers, SuccessChance = CalculateSuccessChance() };
         mission.StartMission();
         GameManager.Instance.NotificationManager.AddNotification(Enums.Notification.Mission, mission);

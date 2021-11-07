@@ -1,16 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseNotification : MonoBehaviour
 {
-    protected void OpenNotification()
+    private RectTransform rectTransform;
+    private float hidingPosX;
+
+    private void Awake()
     {
-        // TODO: Зробити анімацію заповзання і виповзання нотифікацій
+        rectTransform = GetComponent<RectTransform>();
     }
+
+    public void OpenNotification()
+    {
+        hidingPosX = rectTransform.sizeDelta.x * 2;
+        rectTransform.anchoredPosition3D = new Vector3(hidingPosX, rectTransform.anchoredPosition3D.y);
+
+        LeanTween.value(gameObject, hidingPosX, rectTransform.sizeDelta.x, Consts.NOTIFICATION_SHOWING_ANIM_TIME)
+            .setOnUpdate((value) => rectTransform.anchoredPosition3D = new Vector3(value, rectTransform.anchoredPosition3D.y));
+    }
+
     protected void CloseNotification()
     {
-        // TODO: Зробити анімацію заповзання і виповзання нотифікацій
-        Destroy(gameObject);
+        LeanTween.cancel(gameObject);
+        LeanTween.value(gameObject, rectTransform.sizeDelta.x, hidingPosX, Consts.NOTIFICATION_SHOWING_ANIM_TIME)
+            .setOnUpdate((value) => rectTransform.anchoredPosition3D = new Vector3(value, rectTransform.anchoredPosition3D.y))
+            .setOnComplete(() => Destroy(gameObject));
     }
 }
