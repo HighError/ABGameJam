@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
         PlayerData.LoadData();
 
         EventSystem.CallOnSoundSettingsUpdateNeeded();
+    }
+
+    private void Start()
+    {
         InstantiateWindow("MainWindow");
     }
 
