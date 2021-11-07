@@ -50,7 +50,7 @@ public class PlayerData : MonoBehaviour
     private void SetRandomCity()
     {
         if (CurrentCity == null)
-            CurrentCity = GameManager.Instance.Cache.GetRandomCity();
+            CurrentCity = GameManager.Instance.Cache.GetCity("Nyonbans");
         else
         {
             City newCity;
@@ -66,14 +66,14 @@ public class PlayerData : MonoBehaviour
     public void NextLevel()
     {
         EventSystem.CallOnWindowsCloseNeeded();
-        GameManager.Instance.InstantiateWindow("NextLevelWindow");
-        CurrentMissions.Clear();
         CurrentMissionsIds.Clear();
+        CurrentMissions.Clear();
+
+        SetRandomCity();
+        GameManager.Instance.InstantiateWindow("NextLevelWindow");
 
         foreach (var hacker in HackerInfoData)
             hacker.IsBusy = false;
-
-        SetRandomCity();
 
         LevelNumber++;
         SabotageProcent = 0;
@@ -88,6 +88,7 @@ public class PlayerData : MonoBehaviour
 
     public void EndGame()
     {
+        CurrentCity = null;
         EventSystem.CallOnWindowsCloseNeeded();
         GameManager.Instance.InstantiateWindow("LoseWindow");
     }

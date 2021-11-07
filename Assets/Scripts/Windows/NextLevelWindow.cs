@@ -7,5 +7,10 @@ public class NextLevelWindow : BaseWindow
 {
     [SerializeField] private TextMeshProUGUI locationNameText;
     [SerializeField] private TextMeshProUGUI debafText;
-    [SerializeField] private TextMeshProUGUI debafDescriptionText;
+
+    void Start()
+    {
+        locationNameText.text = $"Ваша наступна локація: {GameManager.Instance.PlayerData.CurrentCity.Name}";
+        debafText.text = $"Ускладнювач:\n{GameManager.Instance.PlayerData.CurrentCity.GetDebafInfo()}";
+    }
 }
