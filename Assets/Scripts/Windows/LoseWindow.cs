@@ -26,9 +26,10 @@ public class LoseWindow : BaseWindow
         if (GameManager.Instance.PlayerData.CurrentScore >= GameManager.Instance.PlayerData.MaxScore)
         {
             scoreText.color = Color.yellow;
-            GameManager.Instance.PlayerData.MaxHackers = GameManager.Instance.PlayerData.CurrentScore;
+            GameManager.Instance.PlayerData.MaxScore = GameManager.Instance.PlayerData.CurrentScore;
         }
         EventSystem.CallOnRecordUpdateNeeded();
         scoreText.text = "Рахунок: " + GameManager.Instance.PlayerData.CurrentScore.ToString();
+        GameManager.Instance.PlayerData.CreateNewData();
     }
 }
