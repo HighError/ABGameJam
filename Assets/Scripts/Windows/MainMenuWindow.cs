@@ -80,5 +80,6 @@ public class MainMenuWindow : MonoBehaviour
     private void OnDestroy()
     {
         EventSystem.OnUpdateScoreNeeded -= UpdateProcentsAndScore;
+        EventSystem.OnRecordUpdateNeeded -= UpdateRecord;
     }
 }

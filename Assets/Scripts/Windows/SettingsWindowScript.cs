@@ -50,5 +50,6 @@ public class SettingsWindowScript : BaseWindow
     private void ResetButtonOnClick()
     {
         GameManager.Instance.PlayerData.MaxScore = 0;
+        EventSystem.CallOnRecordUpdateNeeded();
     }
 }

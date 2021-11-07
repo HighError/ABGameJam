@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        InstantiateWindow("MainWindow");
+        //InstantiateWindow("MainWindow");
+        GameManager.Instance.InstantiateWindow("LoseWindow");
     }
 
     public BaseWindow InstantiateWindow(string windowName)
