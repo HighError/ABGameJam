@@ -23,8 +23,8 @@ public class NotificationManager : MonoBehaviour
     {
         if (type == Enums.Notification.Mission && mission != null)
         {
-            Instantiate(missionPrefab, content.transform);
-            missionPrefab.GetComponent<MissionNotification>().SetInformation(mission);
+            MissionNotification missionNotification = Instantiate(missionPrefab, content.transform).GetComponent<MissionNotification>();
+            missionNotification.SetInformation(mission);
         }
         else if (type == Enums.Notification.Error)
         {

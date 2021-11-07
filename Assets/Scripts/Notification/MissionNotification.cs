@@ -29,7 +29,6 @@ public class MissionNotification : BaseNotification
 
     private void Update()
     {
-        //FIX: υσινÿ η 0
         if (!done && startTime != 0 && endTime != 0)
         {
             long passedTime = DateTime.Now.Ticks - startTime;

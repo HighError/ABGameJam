@@ -83,8 +83,8 @@ public class PlayerData : MonoBehaviour
             file.Close();
 
             MaxScore = savedData.MaxScore;
-            //CHECK: Тут оновлюю панель рекорду
-            EventSystem.CallOnRecordUpdateNeeded();
+
+            AdditionalAfterLoadActions();
 
             Debug.Log("Game Loaded");
         }
@@ -96,6 +96,11 @@ public class PlayerData : MonoBehaviour
         }
     }
     #endregion
+
+    private void AdditionalAfterLoadActions()
+    {
+        EventSystem.CallOnRecordUpdateNeeded();
+    }
 }
 
 [System.Serializable]
