@@ -25,4 +25,7 @@ public class EventSystem
 
     public static event EventHandler OnNotificationsShowNeeded;
     public static void CallOnNotificationsShowNeeded() { if (OnNotificationsShowNeeded != null) OnNotificationsShowNeeded(); }
+
+    public static event EventHandler OnOverlayUpdateNeeded;
+    public static void CallOnOverlayUpdateNeeded() { if (OnOverlayUpdateNeeded != null) OnOverlayUpdateNeeded(); }
 }

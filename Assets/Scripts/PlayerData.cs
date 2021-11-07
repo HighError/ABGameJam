@@ -56,7 +56,9 @@ public class PlayerData : MonoBehaviour
             {
                 newCity = GameManager.Instance.Cache.GetRandomCity();
             } while (newCity.Name == CurrentCity.Name);
+            CurrentCity = newCity;
         }
+        EventSystem.CallOnOverlayUpdateNeeded();
     }
 
     public void NextLevel()
@@ -160,6 +162,7 @@ public class PlayerData : MonoBehaviour
     private void AdditionalAfterLoadActions()
     {
         EventSystem.CallOnRecordUpdateNeeded();
+        LeanTween.delayedCall(0.1f, () => EventSystem.CallOnOverlayUpdateNeeded());
     }
 }
 
