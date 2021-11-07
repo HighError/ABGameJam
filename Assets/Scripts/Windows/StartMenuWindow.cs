@@ -20,6 +20,7 @@ public class StartMenuWindow : BaseWindow
 
     private void NewGameButtonOnClick()
     {
+        GameManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.PlayerData.CreateNewData();
         GameManager.Instance.Updater.enabled = true;
         EventSystem.CallOnUpdateScoreNeeded();
@@ -28,6 +29,7 @@ public class StartMenuWindow : BaseWindow
 
     private void ContinueButtonOnClick()
     {
+        GameManager.Instance.PlaySound("ButtonClick");
         GameManager.Instance.Updater.enabled = true;
         EventSystem.CallOnUpdateScoreNeeded();
         EventSystem.CallOnNotificationsShowNeeded();
