@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClose: {fileID: 2964255306078255542}
-  clicksCatcher: {fileID: 8902817456964538059}
+  clicksCatcher: {fileID: 0}
   newGameButton: {fileID: 845715383181607672}
   continueButton: {fileID: 5269460606937921936}
 --- !u!1 &2805222213279541949

@@ -59,6 +59,11 @@ public class MissionsDetailInfoWindow : BaseWindow
     private int CalculateSuccessChance()
     {
         int chance = missionData.SuccessChance;
+        if (GameManager.Instance.PlayerData.CurrentCity.Debaf == Enums.CityDebafs.SuccessChanceMinus10)
+            chance -= 10;
+        else if (GameManager.Instance.PlayerData.CurrentCity.Debaf == Enums.CityDebafs.SuccessChanceMinus15)
+            chance -= 15;
+
         foreach (var hacker in selectedHackers)
         {
             if (hacker.Stats.Specialization.Exists((spec) => missionData.Specializations.Contains(spec)))

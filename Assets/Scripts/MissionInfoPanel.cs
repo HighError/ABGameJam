@@ -23,12 +23,13 @@ public class MissionInfoPanel : MonoBehaviour
 
         titleText.text = missionData.Name;
 
+        int successChance = missionData.SuccessChance;
         if (GameManager.Instance.PlayerData.CurrentCity.Debaf == Enums.CityDebafs.SuccessChanceMinus10)
-            missionData.SuccessChance -= 10;
+            successChance -= 10;
         else if (GameManager.Instance.PlayerData.CurrentCity.Debaf == Enums.CityDebafs.SuccessChanceMinus15)
-            missionData.SuccessChance -= 15;
+            successChance -= 15;
 
-        baseChanceText.text = $"Базовий шанс успіху: {missionData.SuccessChance}%";
+        baseChanceText.text = $"Базовий шанс успіху: {successChance}%";
         for (int i = 0; i < specializationImages.Count; i++)
         {
             if (i < missionData.Specializations.Count)
