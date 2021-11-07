@@ -84,6 +84,8 @@ public class PlayerData : MonoBehaviour
 
         if (CurrentCity.Debaf != Enums.CityDebafs.NoNewHacker)
             MaxHackers += 1;
+
+        EventSystem.CallOnUpdateScoreNeeded();
     }
 
     public void EndGame()
