@@ -72,7 +72,7 @@ public class MissionsDetailInfoWindow : BaseWindow
 
     private void AddHackerButtonOnClick()
     {
-        if (selectedHackers.Count < GameManager.Instance.PlayerData.HackerInfoData.Count)
+        if (selectedHackers.Count < GameManager.Instance.PlayerData.HackerInfoData.FindAll((el) => !el.IsBusy).Count)
         {
             MyHackersWindowScript hackersWindow = GameManager.Instance.InstantiateWindow("MyHackersWindow").GetComponent<MyHackersWindowScript>();
             hackersWindow.HideBusyHackers();

@@ -76,7 +76,7 @@ public class HackerInfoPanel : MonoBehaviour
 
         windowScript.HideWindow();
         MissionsDetailInfoWindow.currentHacker = hacker;
-        LeanTween.delayedCall(Consts.WINDOW_SHOWING_ANIM_TIME, () => EventSystem.CallOnEnableMissionDetailWindowNeeded());
+        EventSystem.CallOnEnableMissionDetailWindowNeeded();
     }
 
     public Hacker GetHacker()
