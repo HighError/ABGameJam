@@ -9,6 +9,7 @@ public class MissionInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI baseChanceText;
     [SerializeField] private List<Image> specializationImages;
     [SerializeField] private Button selectButton;
+    [SerializeField] private TextMeshProUGUI noScepText;
 
     private MissionData missionData;
 
@@ -39,6 +40,9 @@ public class MissionInfoPanel : MonoBehaviour
             else
             {
                 specializationImages[i].gameObject.SetActive(false);
+
+                if (i == 0)
+                    noScepText.gameObject.SetActive(true);
             }
         }
     }

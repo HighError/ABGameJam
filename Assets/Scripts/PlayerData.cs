@@ -24,10 +24,7 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public City CurrentCity;
     [HideInInspector] public List<int> CurrentMissionsIds;
 
-    private void Awake()
-    {
-        //CreateNewData();
-    }
+    [HideInInspector] public bool NewGameStarted;
 
     public void CreateNewData()
     {
@@ -40,7 +37,7 @@ public class PlayerData : MonoBehaviour
         LoseProcent = 0;
         CompletedMissionsCount = 0;
         CurrentScore = 0;
-        MaxHackers = 2;
+        MaxHackers = 4;
         NoMusic = false;
         NoSound = false;
         SetRandomCity();
@@ -83,7 +80,7 @@ public class PlayerData : MonoBehaviour
             LoseProcent = 10;
 
         if (CurrentCity.Debaf != Enums.CityDebafs.NoNewHacker)
-            MaxHackers += 1;
+            MaxHackers += UnityEngine.Random.Range(1, 2);
 
         EventSystem.CallOnUpdateScoreNeeded();
     }
@@ -171,7 +168,6 @@ public class PlayerData : MonoBehaviour
     private void AdditionalAfterLoadActions()
     {
         EventSystem.CallOnRecordUpdateNeeded();
-        LeanTween.delayedCall(0.1f, () => EventSystem.CallOnOverlayUpdateNeeded());
     }
 }
 

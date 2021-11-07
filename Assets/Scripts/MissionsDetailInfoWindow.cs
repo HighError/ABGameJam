@@ -18,6 +18,8 @@ public class MissionsDetailInfoWindow : BaseWindow
 
     [SerializeField] private Button startMissionButton;
 
+    [SerializeField] private TextMeshProUGUI noSpecText;
+
     private List<Hacker> selectedHackers;
     private MissionData missionData;
 
@@ -47,7 +49,11 @@ public class MissionsDetailInfoWindow : BaseWindow
             if (i < _missionData.Specializations.Count)
                 specializationImages[i].sprite = GameManager.Instance.Cache.GetSprite(_missionData.Specializations[i].ToString());
             else
+            {
                 specializationImages[i].gameObject.SetActive(false);
+                if (i == 0)
+                    noSpecText.gameObject.SetActive(true);
+            }
         }
 
         rewardPointsText.text = "+" + _missionData.RewardProcent.ToString() + "%";

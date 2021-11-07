@@ -33,6 +33,7 @@ public class StartMenuWindow : BaseWindow
         GameManager.Instance.Updater.enabled = true;
         EventSystem.CallOnUpdateScoreNeeded();
         EventSystem.CallOnNotificationsShowNeeded();
+        EventSystem.CallOnOverlayUpdateNeeded();
         HideWindow();
     }
 }
