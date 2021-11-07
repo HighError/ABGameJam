@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 2512884790238409578}
   - component: {fileID: 3463060266284226690}
   - component: {fileID: 8759235795848943570}
-  - component: {fileID: 6527014760403328711}
+  - component: {fileID: 1826484923649736345}
   m_Layer: 5
   m_Name: NextLevelWindow
   m_TagString: Untagged
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6527014760403328711
+--- !u!114 &1826484923649736345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -913,11 +913,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7801070639701284589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe33595534cd31b44a4904571d0b6aea, type: 3}
+  m_Script: {fileID: 11500000, guid: df53dfed03b1b5c4f9a523874af7bd79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClose: {fileID: 8302542337982230540}
   clicksCatcher: {fileID: 6781009386345446836}
+  locationNameText: {fileID: 3838228787160536612}
+  debafText: {fileID: 7113389098476825052}
+  debafDescriptionText: {fileID: 2613570926857904974}
 --- !u!1001 &1718126848924317436
 PrefabInstance:
   m_ObjectHideFlags: 0
