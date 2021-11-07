@@ -117,6 +117,7 @@ public class PlayerData : MonoBehaviour
 
     public void SaveData()
     {
+#if !UNITY_WEBGL
         SaveData savedData = CreateSaveGameObject();
 
         BinaryFormatter bf = new BinaryFormatter();
@@ -125,10 +126,12 @@ public class PlayerData : MonoBehaviour
         file.Close();
 
         Debug.Log("Game Saved");
+#endif
     }
 
     public void LoadData()
     {
+#if !UNITY_WEBGL
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -162,8 +165,11 @@ public class PlayerData : MonoBehaviour
 
             Debug.Log("No game saved!");
         }
+#else
+        CreateNewData();
+#endif
     }
-    #endregion
+#endregion
 
     private void AdditionalAfterLoadActions()
     {

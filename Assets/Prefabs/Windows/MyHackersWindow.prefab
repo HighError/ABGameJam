@@ -131,7 +131,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -772,6 +772,7 @@ MonoBehaviour:
   clicksCatcher: {fileID: 2344969881960965390}
   hackerInfoPrefab: {fileID: 6163191113826503372, guid: 54d8f9cb3fce6284bb7d38275462b007, type: 3}
   hackersInfoContainer: {fileID: 718006826927063357}
+  hackerInfoPanels: []
 --- !u!1001 &4541324157069581520
 PrefabInstance:
   m_ObjectHideFlags: 0
