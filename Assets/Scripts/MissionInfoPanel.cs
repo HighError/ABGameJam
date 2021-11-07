@@ -38,6 +38,8 @@ public class MissionInfoPanel : MonoBehaviour
 
     private void SelectButtonOnClick()
     {
+        GameManager.Instance.PlaySound("ButtonClick");
+
         EventSystem.CallOnWindowsCloseNeeded();
         MissionsDetailInfoWindow missionInfoWindow = GameManager.Instance.InstantiateWindow("MissionsDetailInfoWindow").GetComponent<MissionsDetailInfoWindow>();
         missionInfoWindow.UpdateData(missionData);

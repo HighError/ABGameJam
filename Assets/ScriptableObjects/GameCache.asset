@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 8744024077684665344, guid: d160e147ebaa6d64d82ef5deeb8fd136, type: 3}
   - {fileID: 7661649880405097685, guid: 41d38f2b3c92ff649a0028ba70952d1c, type: 3}
   - {fileID: 4661944412333595677, guid: 6382481add6857c439169f4c59d91338, type: 3}
-  - {fileID: 6527014760403328711, guid: b5e60b6cb4c12804fa5454dcf34cbd0e, type: 3}
+  - {fileID: 2864430184131529791, guid: b5e60b6cb4c12804fa5454dcf34cbd0e, type: 3}
   - {fileID: 7340815022682456271, guid: 367bfb16bacbdff4693078e134d1e9e3, type: 3}
   missions:
   - Id: 0
@@ -157,3 +157,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b416841f8140efb4fb9a4dfa8a3700c6, type: 3}
   - {fileID: 21300000, guid: b7ef1eb2a79154d44aa6fdfd724be7a0, type: 3}
   - {fileID: 21300000, guid: ecaa0bda38edbe7428d1b64a6c7587af, type: 3}
+  cities: []

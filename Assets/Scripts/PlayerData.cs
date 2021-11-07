@@ -17,6 +17,9 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public List<Hacker.HackerStats> recrutHackerList;
     [HideInInspector] public List<Mission> CurrentMissions;
 
+    [HideInInspector] public bool NoMusic;
+    [HideInInspector] public bool NoSound;
+
     private void Awake()
     {
         //CreateNewData();
@@ -57,6 +60,8 @@ public class PlayerData : MonoBehaviour
     {
         SaveData savedData = new SaveData();
         savedData.MaxScore = MaxScore;
+        savedData.NoMusic = NoMusic;
+        savedData.NoSound = NoSound;
 
         return savedData;
     }
@@ -83,6 +88,8 @@ public class PlayerData : MonoBehaviour
             file.Close();
 
             MaxScore = savedData.MaxScore;
+            NoMusic = savedData.NoMusic;
+            NoSound = savedData.NoSound;
 
             AdditionalAfterLoadActions();
 
@@ -107,4 +114,6 @@ public class PlayerData : MonoBehaviour
 public class SaveData
 {
     public int MaxScore;
+    public bool NoMusic;
+    public bool NoSound;
 }

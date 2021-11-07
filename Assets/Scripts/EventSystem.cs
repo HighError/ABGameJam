@@ -19,4 +19,7 @@ public class EventSystem
 
     public static event EventHandler OnRecordUpdateNeeded;
     public static void CallOnRecordUpdateNeeded() { if (OnRecordUpdateNeeded != null) OnRecordUpdateNeeded(); }
+
+    public static event EventHandler OnSoundSettingsUpdateNeeded;
+    public static void CallOnSoundSettingsUpdateNeeded() { if (OnSoundSettingsUpdateNeeded != null) OnSoundSettingsUpdateNeeded(); }
 }

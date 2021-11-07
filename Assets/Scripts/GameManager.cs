@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public PlayerData PlayerData { get; private set; }
     public Updater Updater { get; private set; }
     public NotificationManager NotificationManager {get; private set;}
+    public AudioManager AudioManager { get; private set;}
 
     private void Awake()
     {
@@ -17,7 +18,10 @@ public class GameManager : MonoBehaviour
         Cache = GetComponent<CacheScript>();
         PlayerData = GetComponent<PlayerData>();
         Updater = GetComponent<Updater>();
+        AudioManager = GetComponent<AudioManager>();
         PlayerData.LoadData();
+
+        EventSystem.CallOnSoundSettingsUpdateNeeded();
         InstantiateWindow("MainWindow");
     }
 
@@ -28,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void PlaySound(string soundName)
     {
-        GetComponent<AudioSource>().PlayOneShot(Cache.GetSound(soundName));
+        AudioManager.PlaySound(soundName);
     }
 
     private void OnApplicationPause(bool pause)

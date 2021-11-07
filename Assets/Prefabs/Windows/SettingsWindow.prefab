@@ -1153,7 +1153,7 @@ GameObject:
   - component: {fileID: 2512884790238409578}
   - component: {fileID: 3463060266284226690}
   - component: {fileID: 8759235795848943570}
-  - component: {fileID: 6527014760403328711}
+  - component: {fileID: 2864430184131529791}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6527014760403328711
+--- !u!114 &2864430184131529791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1230,11 +1230,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7801070639701284589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe33595534cd31b44a4904571d0b6aea, type: 3}
+  m_Script: {fileID: 11500000, guid: b1f168e796bcf5741909bdf312330f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClose: {fileID: 8302542337982230540}
   clicksCatcher: {fileID: 6781009386345446836}
+  musicButton: {fileID: 675813982687463681}
+  soundButton: {fileID: 7651702918635790944}
+  resetRecordButton: {fileID: 8265876974552356686}
+  enabledSprite: {fileID: 21300000, guid: 572955b2fc805584aaa343215e806606, type: 3}
+  disabledSprite: {fileID: 21300000, guid: a11d716ada219fe4683e6147d610043e, type: 3}
 --- !u!1 &8813070084082945889
 GameObject:
   m_ObjectHideFlags: 0
