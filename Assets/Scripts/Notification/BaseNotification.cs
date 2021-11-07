@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BaseNotification : MonoBehaviour
 {
-    private RectTransform rectTransform;
-    private float hidingPosX;
-    private bool isClosing = false;
+    protected RectTransform rectTransform;
+    protected float hidingPosX;
+    protected bool isClosing = false;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class BaseNotification : MonoBehaviour
             .setOnUpdate((value) => rectTransform.anchoredPosition3D = new Vector3(value, rectTransform.anchoredPosition3D.y));
     }
 
-    protected void CloseNotification()
+    protected virtual void CloseNotification()
     {
         if (!isClosing)
         {

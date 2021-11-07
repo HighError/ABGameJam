@@ -21,6 +21,7 @@ MonoBehaviour:
   - {fileID: 4661944412333595677, guid: 6382481add6857c439169f4c59d91338, type: 3}
   - {fileID: 2864430184131529791, guid: b5e60b6cb4c12804fa5454dcf34cbd0e, type: 3}
   - {fileID: 7340815022682456271, guid: 367bfb16bacbdff4693078e134d1e9e3, type: 3}
+  - {fileID: 6527014760403328711, guid: ee86d36cd1978fc4d8c21916aa9647d4, type: 3}
   missions:
   - Id: 0
     Name: "\u0412\u0438\u043A\u0440\u0430\u0441\u0442\u0438 \u0434\u0430\u043D\u0456
@@ -68,7 +69,7 @@ MonoBehaviour:
     Specializations: 010000000000000004000000
   - Id: 5
     Name: "\u0417\u0456\u0440\u0432\u0430\u0442\u0438 \u043A\u043E\u043D\u0444\u0435\u0440\u0435\u043D\u0446\u0456\u044E"
-    SuccessChance: 70
+    SuccessChance: 55
     LoseProcent: 12
     RewardProcent: 14
     BaseScore: 10
@@ -77,7 +78,7 @@ MonoBehaviour:
   - Id: 6
     Name: "\u041F\u0435\u0440\u0435\u0434\u0430\u0442\u0438 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044E
       \u0436\u0443\u0440\u043D\u0430\u043B\u0456\u0441\u0442\u0430\u043C"
-    SuccessChance: 90
+    SuccessChance: 80
     LoseProcent: 3
     RewardProcent: 3
     BaseScore: 5
@@ -104,7 +105,7 @@ MonoBehaviour:
   - Id: 9
     Name: "\u0412\u0456\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u0438 \u043A\u0430\u043C\u0435\u0440\u0438
       \u0443 \u043C\u0456\u0441\u0442\u0456"
-    SuccessChance: 45
+    SuccessChance: 35
     LoseProcent: 6
     RewardProcent: 6
     BaseScore: 8
@@ -138,7 +139,7 @@ MonoBehaviour:
   - Id: 13
     Name: "\u0421\u0442\u0435\u0440\u0442\u0438 \u0434\u0430\u043D\u0456 \u0441\u0435\u0440\u0432\u0435\u0440\u0456\u0432
       \u0434\u0435\u0440\u0436\u0441\u043B\u0443\u0436\u0431"
-    SuccessChance: 60
+    SuccessChance: 45
     LoseProcent: 20
     RewardProcent: 10
     BaseScore: 40
@@ -157,4 +158,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b416841f8140efb4fb9a4dfa8a3700c6, type: 3}
   - {fileID: 21300000, guid: b7ef1eb2a79154d44aa6fdfd724be7a0, type: 3}
   - {fileID: 21300000, guid: ecaa0bda38edbe7428d1b64a6c7587af, type: 3}
-  cities: []
+  cities:
+  - Name: Nyonbans
+    Debaf: 0
+  - Name: Ntwichmis
+    Debaf: 3
+  - Name: Caicreekburgh
+    Debaf: 4
+  - Name: West Northtersroy
+    Debaf: 1
+  - Name: Leinwick
+    Debaf: 2
+  - Name: Booodminster
+    Debaf: 2
+  - Name: Wingran
+    Debaf: 1
+  - Name: Grand Churchha
+    Debaf: 3
+  - Name: Shitgrave
+    Debaf: 4

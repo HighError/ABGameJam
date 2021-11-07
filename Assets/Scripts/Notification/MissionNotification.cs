@@ -18,9 +18,13 @@ public class MissionNotification : BaseNotification
     private bool done;
     private long endTime;
     private long startTime;
+    private float checkLoseTimer = 0f;
+
+    private Mission mission;
 
     public void SetInformation(Mission mission)
     {
+        this.mission = mission;
         title.text = mission.MissionData.Name;
         icon.sprite = progressBar;
         done = false;
@@ -42,10 +46,33 @@ public class MissionNotification : BaseNotification
                 done = true;
             }
             icon.fillAmount = (float)percent;
-            processText.text = $"{Decimal.Round(percent * 100,1)}%";
+            processText.text = $"{Decimal.Round(percent * 100, 1)}%";
             return;
         }
-        else CloseNotification();
+        else
+        {
+            checkLoseTimer += Time.deltaTime;
+            if (checkLoseTimer > 0.2f)
+                CloseNotification();
+        }
     }
 
+    protected override void CloseNotification()
+    {
+        if (!isClosing && !GameManager.Instance.PlayerData.CurrentMissions.Contains(mission))
+        {
+            isClosing = true;
+            LeanTween.cancel(gameObject);
+
+            icon.sprite = mission.IsSuccess ? successfullySprite : failSprite;
+            processText.gameObject.SetActive(false);
+
+            LeanTween.delayedCall(2f, () =>
+            {
+                LeanTween.value(gameObject, rectTransform.sizeDelta.x, hidingPosX, Consts.NOTIFICATION_SHOWING_ANIM_TIME)
+                    .setOnUpdate((value) => rectTransform.anchoredPosition3D = new Vector3(value, rectTransform.anchoredPosition3D.y))
+                    .setOnComplete(() => Destroy(gameObject));
+            });
+        }
+    }
 }

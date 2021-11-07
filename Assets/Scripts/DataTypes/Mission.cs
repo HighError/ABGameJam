@@ -9,6 +9,7 @@ public class Mission
     public long StartMissionTicks;
     public long EndMissionTicks;
     public MissionData MissionData;
+    public bool IsSuccess;
 
     public void StartMission()
     {
@@ -17,6 +18,7 @@ public class Mission
 
         StartMissionTicks = DateTime.Now.Ticks;
         EndMissionTicks = DateTime.Now.AddMinutes(MissionData.Minutes).Ticks;
+        IsSuccess = UnityEngine.Random.Range(0, 101) < MissionData.SuccessChance;
     }
 
     public bool CheckCompleted()
@@ -35,9 +37,8 @@ public class Mission
         foreach (var hacker in Hackers)
             hacker.IsBusy = false;
 
-        if (UnityEngine.Random.Range(0, 101) < MissionData.SuccessChance)
+        if (IsSuccess)
         {
-            // CHECK: Тут правильний процент? Просто не найшов де ми його міняли від того, що добавляєш хакерів (тикнеш носом)
             GameManager.Instance.PlayerData.SabotageProcent += MissionData.RewardProcent;
             GameManager.Instance.PlayerData.CurrentScore += MissionData.CalculateScore(true, MissionData.RewardProcent);
         }

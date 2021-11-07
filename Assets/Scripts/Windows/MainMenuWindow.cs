@@ -58,8 +58,8 @@ public class MainMenuWindow : MonoBehaviour
 
     private void UpdateProcentsAndScore()
     {
-        sabotageProcentText.text = $"{GameManager.Instance.PlayerData.SabotageProcent}%";
-        loseProcentText.text = $"{GameManager.Instance.PlayerData.LoseProcent}%";
+        sabotageProcentText.text = $"{Mathf.Clamp(GameManager.Instance.PlayerData.SabotageProcent, 0, 100)}%";
+        loseProcentText.text = $"{Mathf.Clamp(GameManager.Instance.PlayerData.LoseProcent, 0, 100)}%";
         scoreText.text = GameManager.Instance.PlayerData.CurrentScore.ToString();
 
         if (GameManager.Instance.PlayerData.SabotageProcent >= 100)
