@@ -18,4 +18,13 @@ public class Enums
         Mission,
         Error
     }
+
+    public enum CityDebafs
+    {
+        None,
+        NoNewHacker,
+        StartLoseProc,
+        SuccessChanceMinus10,
+        SuccessChanceMinus15
+    }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CacheScript : MonoBehaviour
@@ -91,5 +92,10 @@ public class CacheScript : MonoBehaviour
     public int GetMissionsCount()
     {
         return missions.Count;
+    }
+
+    public City GetRandomCity()
+    {
+        return cities.Values.ElementAt(Random.Range(0, cities.Count));
     }
 }

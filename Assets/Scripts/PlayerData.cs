@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -20,6 +21,8 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public bool NoMusic;
     [HideInInspector] public bool NoSound;
 
+    [HideInInspector] public City CurrentCity;
+
     private void Awake()
     {
         //CreateNewData();
@@ -36,20 +39,45 @@ public class PlayerData : MonoBehaviour
         LoseProcent = 0;
         CompletedMissionsCount = 0;
         CurrentScore = 0;
-        MaxScore = 0;
         MaxHackers = 2;
         NoMusic = false;
         NoSound = false;
+        SetRandomCity();
+    }
+
+    private void SetRandomCity()
+    {
+        if (CurrentCity == null)
+            CurrentCity = GameManager.Instance.Cache.GetRandomCity();
+        else
+        {
+            City newCity;
+            do
+            {
+                newCity = GameManager.Instance.Cache.GetRandomCity();
+            } while (newCity.Name == CurrentCity.Name);
+        }
     }
 
     public void NextLevel()
     {
         EventSystem.CallOnWindowsCloseNeeded();
         GameManager.Instance.InstantiateWindow("NextLevelWindow");
+        GameManager.Instance.PlayerData.CurrentMissions.Clear();
+
+        foreach (var hacker in HackerInfoData)
+            hacker.IsBusy = false;
+
+        SetRandomCity();
+
         LevelNumber++;
         SabotageProcent = 0;
-        LoseProcent = 0;
-        MaxHackers += 1;
+
+        if (CurrentCity.Debaf == Enums.CityDebafs.StartLoseProc)
+            LoseProcent = 10;
+
+        if (CurrentCity.Debaf != Enums.CityDebafs.NoNewHacker)
+            MaxHackers += 1;
     }
 
     public void EndGame()
@@ -75,6 +103,7 @@ public class PlayerData : MonoBehaviour
         savedData.NoMusic = NoMusic;
         savedData.NoSound = NoSound;
         savedData.RectuteUpdateTime = GameManager.Instance.Updater.GetRecruteUpdateTime();
+        savedData.CurrentCity = CurrentCity;
 
         return savedData;
     }
@@ -113,6 +142,7 @@ public class PlayerData : MonoBehaviour
             NoMusic = savedData.NoMusic;
             NoSound = savedData.NoSound;
             GameManager.Instance.Updater.SetRecruteUpdateTime(savedData.RectuteUpdateTime);
+            CurrentCity = savedData.CurrentCity;
 
             AdditionalAfterLoadActions();
 
@@ -152,4 +182,5 @@ public class SaveData
     public bool NoSound;
 
     public float RectuteUpdateTime;
+    public City CurrentCity;
 }

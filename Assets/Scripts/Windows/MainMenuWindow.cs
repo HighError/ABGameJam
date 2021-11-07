@@ -62,7 +62,6 @@ public class MainMenuWindow : MonoBehaviour
         loseProcentText.text = $"{GameManager.Instance.PlayerData.LoseProcent}%";
         scoreText.text = GameManager.Instance.PlayerData.CurrentScore.ToString();
 
-        //CHECK: Тут провіряється поразка або перехід на наступний рівень
         if (GameManager.Instance.PlayerData.SabotageProcent >= 100)
         {
             GameManager.Instance.PlayerData.NextLevel();
