@@ -9,6 +9,7 @@ public class MissionNotification : BaseNotification
 {
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private Image icon;
+    [SerializeField] private TextMeshProUGUI processText;
 
     [SerializeField] private Sprite progressBar;
     [SerializeField] private Sprite failSprite;
@@ -34,8 +35,14 @@ public class MissionNotification : BaseNotification
             long passedTime = DateTime.Now.Ticks - startTime;
             long totalTime = endTime - startTime;
 
-            decimal percent = Decimal.Round(passedTime / totalTime, 2);
-            if (percent >= 1) done = true;
+            decimal percent = Decimal.Round((decimal)passedTime / totalTime, 3);
+            if (percent >= 1)
+            {
+                percent = 1;
+                done = true;
+            }
+            icon.fillAmount = (float)percent;
+            processText.text = $"{Decimal.Round(percent * 100,1)}%";
             return;
         }
         else CloseNotification();
