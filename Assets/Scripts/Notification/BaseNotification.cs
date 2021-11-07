@@ -4,6 +4,7 @@ public class BaseNotification : MonoBehaviour
 {
     private RectTransform rectTransform;
     private float hidingPosX;
+    private bool isClosing = false;
 
     private void Awake()
     {
@@ -21,9 +22,13 @@ public class BaseNotification : MonoBehaviour
 
     protected void CloseNotification()
     {
-        LeanTween.cancel(gameObject);
-        LeanTween.value(gameObject, rectTransform.sizeDelta.x, hidingPosX, Consts.NOTIFICATION_SHOWING_ANIM_TIME)
-            .setOnUpdate((value) => rectTransform.anchoredPosition3D = new Vector3(value, rectTransform.anchoredPosition3D.y))
-            .setOnComplete(() => Destroy(gameObject));
+        if (!isClosing)
+        {
+            isClosing = true;
+            LeanTween.cancel(gameObject);
+            LeanTween.value(gameObject, rectTransform.sizeDelta.x, hidingPosX, Consts.NOTIFICATION_SHOWING_ANIM_TIME)
+                .setOnUpdate((value) => rectTransform.anchoredPosition3D = new Vector3(value, rectTransform.anchoredPosition3D.y))
+                .setOnComplete(() => Destroy(gameObject));
+        }
     }
 }
