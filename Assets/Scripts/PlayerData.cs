@@ -22,6 +22,7 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public bool NoSound;
 
     [HideInInspector] public City CurrentCity;
+    [HideInInspector] public List<int> CurrentMissionsIds;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class PlayerData : MonoBehaviour
         NoMusic = false;
         NoSound = false;
         SetRandomCity();
+        CurrentMissionsIds = new List<int>();
     }
 
     private void SetRandomCity()
@@ -65,7 +67,8 @@ public class PlayerData : MonoBehaviour
     {
         EventSystem.CallOnWindowsCloseNeeded();
         GameManager.Instance.InstantiateWindow("NextLevelWindow");
-        GameManager.Instance.PlayerData.CurrentMissions.Clear();
+        CurrentMissions.Clear();
+        CurrentMissionsIds.Clear();
 
         foreach (var hacker in HackerInfoData)
             hacker.IsBusy = false;
@@ -74,6 +77,7 @@ public class PlayerData : MonoBehaviour
 
         LevelNumber++;
         SabotageProcent = 0;
+        LoseProcent = 0;
 
         if (CurrentCity.Debaf == Enums.CityDebafs.StartLoseProc)
             LoseProcent = 10;
@@ -92,7 +96,7 @@ public class PlayerData : MonoBehaviour
     private SaveData CreateSaveGameObject()
     {
         SaveData savedData = new SaveData();
-        savedData.HackerInfoData =HackerInfoData;
+        savedData.HackerInfoData = HackerInfoData;
         savedData.LevelNumber = LevelNumber;
         savedData.SabotageProcent = SabotageProcent;
         savedData.LoseProcent = LoseProcent;
@@ -106,6 +110,7 @@ public class PlayerData : MonoBehaviour
         savedData.NoSound = NoSound;
         savedData.RectuteUpdateTime = GameManager.Instance.Updater.GetRecruteUpdateTime();
         savedData.CurrentCity = CurrentCity;
+        savedData.CurrentMissionsIds = CurrentMissionsIds;
 
         return savedData;
     }
@@ -145,6 +150,7 @@ public class PlayerData : MonoBehaviour
             NoSound = savedData.NoSound;
             GameManager.Instance.Updater.SetRecruteUpdateTime(savedData.RectuteUpdateTime);
             CurrentCity = savedData.CurrentCity;
+            CurrentMissionsIds = savedData.CurrentMissionsIds;
 
             AdditionalAfterLoadActions();
 
@@ -186,4 +192,5 @@ public class SaveData
 
     public float RectuteUpdateTime;
     public City CurrentCity;
+    public List<int> CurrentMissionsIds;
 }

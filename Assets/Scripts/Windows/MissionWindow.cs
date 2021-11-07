@@ -16,15 +16,22 @@ public class MissionWindow : BaseWindow
 
     private void InitMissions()
     {
-        List<int> usedIds = new List<int>();
+        if (GameManager.Instance.PlayerData.CurrentMissionsIds == null) //for old saves
+            GameManager.Instance.PlayerData.CurrentMissionsIds = new List<int>();
+
         int id;
         for (int i = 0; i < MISSSIONS_COUNT; i++)
         {
-            do
+            if (i >= GameManager.Instance.PlayerData.CurrentMissionsIds.Count)
             {
-                id = Random.Range(0, GameManager.Instance.Cache.GetMissionsCount());
-            } while (usedIds.Contains(id));
-            usedIds.Add(id);
+                do
+                {
+                    id = Random.Range(0, GameManager.Instance.Cache.GetMissionsCount());
+                } while (GameManager.Instance.PlayerData.CurrentMissionsIds.Contains(id));
+                GameManager.Instance.PlayerData.CurrentMissionsIds.Add(id);
+            }
+            else
+                id = GameManager.Instance.PlayerData.CurrentMissionsIds[i];
 
             MissionInfoPanel missionInfoPanel = Instantiate(missionItemPrefab, missionsContainer).GetComponent<MissionInfoPanel>();
             missionInfoPanel.UpdateData(GameManager.Instance.Cache.GetMissionById(id));

@@ -150,6 +150,7 @@ public class MissionsDetailInfoWindow : BaseWindow
         Mission mission = new Mission() { MissionData = missionData, Hackers = selectedHackers, SuccessChance = CalculateSuccessChance() };
         mission.StartMission();
         GameManager.Instance.NotificationManager.AddNotification(Enums.Notification.Mission, mission);
+        GameManager.Instance.PlayerData.CurrentMissionsIds.Remove(mission.MissionData.Id);
         GameManager.Instance.PlayerData.CurrentMissions.Add(mission);
         HideWindow();
     }
